@@ -1,0 +1,22 @@
+[
+    {
+        "value": 1,
+        "images": {
+            "front": "images/1.jpg",
+            "back": "images/2.jpg",
+            "left": "images/3.jpg",
+            "rigth": "images/4.jpg",
+            "top": "images/5.jpg"
+        }
+    },
+    {
+        "value": 2,
+        "images": {
+            "front": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg",
+            "back": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg",
+            "left": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg",
+            "rigth": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg",
+            "top": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"
+        }
+    }
+]
