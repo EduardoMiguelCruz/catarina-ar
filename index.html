@@ -18,6 +18,12 @@
 	<script src="src/mediapipe/face_mesh.js"></script>
 	<script src="src/main-tracker.js"></script>
 
+	<!-- FORM -->
+	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+	<script src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+	<script src="src/form.js"></script>
+
 	<!-- BOOTSTRAP -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		crossorigin="anonymous">
@@ -71,36 +77,43 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<form class="row needs-validation" novalidate>
+					<form class="row needs-validation" novalidate id="dedicatoriaForm">
 						<div class="mb-3 d-flex flex-column">
-							<label for="Image" class="form-label">Deixa-nos uma foto tua</label>
+							<label for="takePhotoBtn" class="form-label">Deixa-nos uma foto tua</label>
 							<input class="form-control" type="file" id="formFile" hidden>
 
 							<div style="position: relative; width:100%; height:70vh; display: none;"
 								id="videoContainer">
 								<video width="100%" height="100%" id="video" autoplay hidden></video>
 								<div>A carregar</div>
-								<canvas width="100%" height="100%" id="canvas"
-									style="position: absolute;top: 0px;left: 0px;"></canvas>
+								<canvas width="100%" height="100%" id="canvas" style="position: absolute;top: 0px;left: 0px;"></canvas>
 							</div>
 
-							<button onclick="takePhoto()" class="btn btn-primary mt-3" type="button"
+							<button onclick="trackerAr.takePhoto()" class="btn btn-primary mt-3" type="button"
 								id="takePhotoBtn">Tirar foto</button>
 						</div>
-
 						<div class="mb-3">
-							<label for="exampleFormControlTextarea1" class="form-label">Escreve aqui a tua
-								dedicatória</label>
-							<textarea class="form-control" id="exampleFormControlTextarea1" rows="8"
+							<label for="dedicatoriaAssign" class="form-label">Identifica-te</label>
+							<input type="text" class="form-control" id="dedicatoriaAssign" required></textarea>
+							<div class="invalid-feedback">
+								Obrigatório
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="dedicatoriaText" class="form-label">Escreve aqui a tua mensagem</label>
+							<textarea class="form-control" id="dedicatoriaText" rows="8"
 								required></textarea>
 							<div class="invalid-feedback">
 								Queres escrever uma dedicatória vazia?
 							</div>
 						</div>
+						<div class="alert alert-success" role="alert" style="display: none;" id="dedicatoriaFormAlertSuccess">
+							Obrigado pela tua dedicatória
+						</div>
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="submit" class="btn btn-primary">Enviar</button>
+					<button type="button" class="btn btn-primary" id="dedicatoriaFormSubmitBtn">Enviar</button>
 				</div>
 			</div>
 		</div>
